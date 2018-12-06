@@ -8,7 +8,7 @@ def call(Map config) {
   }
 
   // obtain data from vault
-  def secretData = obtainNodeVaultSecrets(
+  def secretData = obtainPhpVaultSecrets(
     config.secretsInjection.vaultUrl,
     secrets,
     config.secretsInjection.jenkinsCredentialsId
