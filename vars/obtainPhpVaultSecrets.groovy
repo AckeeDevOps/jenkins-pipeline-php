@@ -10,6 +10,7 @@ def call(String vaultUrl, List secrets, String jenkinsSecretName){
       echo "getting credentials @ ${s.path}"
       // read secrets with vault client
       def cmdOutput = sh(script: "vault read -field=data -format=json ${s.path}", returnStdout: true)
+      echo(cmdOutput)
       // parse vault output
       def d = new JsonSlurperClassic().parseText(cmdOutput)
       for(k in s.keyMap) {
